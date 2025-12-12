@@ -1,0 +1,46 @@
+/* RESET */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; color: #111; background: #f9f9f9; line-height: 1.5; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+img { max-width: 100%; display: block; }
+
+/* HEADER */
+header { background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 999; }
+.header-flex { display: flex; align-items: center; justify-content: space-between; height: 84px; }
+.logo { height: 32px; }
+nav { display: flex; align-items: center; gap: 28px; }
+nav a, .btn-header { text-decoration: none; color: #333; font-weight: 500; font-size: 15px; cursor: pointer; }
+.btn-header { background: #0041ff; color: #fff; padding: 10px 24px; border-radius: 50px; transition: opacity .3s; }
+.btn-header:hover { opacity: .85; }
+
+/* HERO */
+#hero { background: linear-gradient(135deg,#0041ff 0%,#00c6ff 100%); color: #fff; padding: 90px 0 120px; }
+.hero-flex { display: flex; align-items: center; gap: 60px; }
+.hero-text { flex: 1 1 520px; }
+.hero-text h1 { font-size: 40px; font-weight: 700; margin-bottom: 18px; }
+.hero-text p { font-size: 18px; margin-bottom: 28px; }
+#form-cpf { display: flex; gap: 12px; margin-top: 28px; }
+#cpf { flex: 1; padding: 14px 18px; border: none; border-radius: 8px; font-size: 16px; }
+#cpf::-webkit-inner-spin-button, #cpf::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.btn-primary { background: #fff; color: #0041ff; padding: 14px 38px; border: none; border-radius: 50px; font-weight: 700; cursor: pointer; transition: transform .3s; }
+.btn-primary:hover { transform: translateY(-2px); }
+.hero-img { width: 400px; object-fit: contain; position: relative; left: 40px; top: 20px; }
+
+/* VANTAGENS */
+#vantagens { padding: 80px 0; background: #fff; }
+#vantagens h2 { text-align: center; font-size: 32px; margin-bottom: 50px; }
+.grid-vantagens { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 40px; }
+.item { text-align: center; }
+.item img { width: 64px; margin: 0 auto 16px; }
+.item h3 { font-size: 20px; font-weight: 600; }
+
+/* FOOTER */
+footer { background: #111; color: #fff; text-align: center; padding: 24px 0; font-size: 14px; }
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .hero-flex { flex-direction: column-reverse; text-align: center; }
+  .hero-text h1 { font-size: 32px; }
+  .hero-img { width: 180px; left: 0; top: 0; }
+  #form-cpf { flex-direction: column; }
+}
