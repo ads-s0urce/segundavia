@@ -29,3 +29,14 @@ document.getElementById('form-cpf').addEventListener('submit', function (e) {
   window.open(`https://wa.me/${tel}?text=${encodeURIComponent(msg)}`, '_blank');
 });
 
+function onSubmit(token) {
+  // token está ok, pode seguir o fluxo antigo
+  document.getElementById("form-cpf").submit();
+}
+function onSubmit(token) {
+  grecaptcha.enterprise.ready(async () => {
+    const score = await grecaptcha.enterprise.execute('6LcyLCosAAAAAIDEKRlketKSPHZdL-BMfcRZT8dF', {action: 'submit'});
+    if (score < 0.3) { alert("Tente novamente."); return; }
+    document.getElementById("form-cpf").submit();
+  });
+}
