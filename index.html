@@ -68,7 +68,11 @@
           console.log('token:', token);  // apenas para você ver que funcionou
           const cpf = document.getElementById('cpf').value;
           // substitua o número abaixo pelo seu WhatsApp
-          window.open(`https://wa.me/5511956391683?text=Olá, quero a 2ª via do boleto - CPF ${cpf}`, '_blank');
+const mensagem = `Olá, quero a 2ª via do boleto - CPF ${cpf}`;
+window.open(
+  `https://wa.me/5511956391683?text=${encodeURIComponent(mensagem)}`,
+  '_blank'
+);
           e.target.reset();
         });
       });
