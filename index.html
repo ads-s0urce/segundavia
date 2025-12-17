@@ -87,7 +87,8 @@
       if(!document.getElementById('lgpd').checked){ alert('Marque a autorização.'); return; }
       fireLead();
       const cpf = document.getElementById('cpf').value.replace(/\D/g,'');
-      window.open('https://wa.me/5511999999999?text=Olá,%20preciso%20da%202ª%20via%20do%20meu%20boleto.%20CPF:%20'+cpf, '_blank');
+      // APENAS ESTA LINHA MUDOU: redireciona na mesma aba
+      window.location.href = 'https://wa.me/5511956391683?text=Olá,%20preciso%20da%202ª%20via%20do%20meu%20boleto.%20CPF:%20'+cpf;
     });
   </script>
 

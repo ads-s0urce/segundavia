@@ -18,28 +18,4 @@ cpfInput.addEventListener('input', () => {
   cpfInput.value = masked;
 });
 
-// ---------- ENVIO COM RECAPTCHA ----------
-document.getElementById('form-cpf').addEventListener('submit', function (e) {
-  e.preventDefault();
-
-  const cleaned = cpfInput.value.replace(/\D/g, '');
-  if (cleaned.length !== 11) {
-    alert('CPF inválido');
-    return;
-  }
-
-  grecaptcha.ready(function () {
-    grecaptcha
-      .execute('6LcyLCosAAAAAIDEKRlketKSPHZdL-BMfcRZT8dF', { action: 'submit' })
-      .then(function () {
-        const hash = 'NTUxMTk1NjM5MTY4Mw=='; // 5511956391683
-        const tel = atob(hash);
-        const msg = `Olá, quero a 2ª via do boleto – CPF ${cleaned}`;
-
-        window.open(
-          `https://wa.me/${tel}?text=${encodeURIComponent(msg)}`,
-          '_blank'
-        );
-      });
-  });
-});
+/*  ———  SEM MAIS NADA AQUI ———  */
