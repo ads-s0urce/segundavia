@@ -10,11 +10,11 @@ header { background: #fff; border-bottom: 1px solid #eee; position: sticky; top:
 .logo { height: 32px; }
 nav { display: flex; align-items: center; gap: 28px; }
 nav a, .btn-header { text-decoration: none; color: #333; font-weight: 500; font-size: 15px; cursor: pointer; }
-.btn-header { background: #0041ff; color: #fff; padding: 10px 24px; border-radius: 50px; transition: opacity .3s; }
+.btn-header { background: #5173da; color: #fff; padding: 10px 24px; border-radius: 50px; transition: opacity .3s; }
 .btn-header:hover { opacity: .85; }
 
 /* HERO */
-#hero { background: linear-gradient(135deg,#0041ff 0%,#00c6ff 100%); color: #fff; padding: 90px 0 120px; }
+#hero { background: linear-gradient(135deg,#436dec 0%,#3daac9 100%); color: #fff; padding: 90px 0 120px; }
 .hero-flex { display: flex; align-items: center; gap: 60px; }
 .hero-text { flex: 1 1 520px; }
 .hero-text h1 { font-size: 40px; font-weight: 700; margin-bottom: 18px; }
