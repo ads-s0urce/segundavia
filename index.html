@@ -87,22 +87,34 @@
   </footer>
 
   <script>
-    // dispara conversão e depois redireciona
+    /* ===== máscara CPF ===== */
+    document.getElementById('cpf').addEventListener('input', function(){
+      let v=this.value.replace(/\D/g,'');
+      if(v.length<=11) this.value=v.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/,'$1.$2.$3-$4');
+    });
+
+    /* ===== submit: ReCaptcha + conversão + WhatsApp ===== */
     document.getElementById('form-cpf').addEventListener('submit', function(e){
       e.preventDefault();
       if(!document.getElementById('lgpd').checked){ alert('Marque a autorização.'); return; }
 
-      // ---- conversão Google Ads ----
-      gtag('event','conversion',{
-        'send_to': 'AW-17797896293/GT-5TQXCMC4', // <-- substitua XXX pelo seu código real
-
-        'value': 0.0,
-        'currency': 'BRL'
+      grecaptcha.ready(function(){
+        grecaptcha.execute('6LcyLCosAAAAAIDEKRlketKSPHZdL-BMfcRZT8dF', {action: 'submit'}).then(function(){
+          /* dispara conversão */
+          if(typeof gtag==='function'){
+            gtag('event','conversion',{
+              'send_to': 'AW-17797896293/qShXCOL5jtMbEOWw2aZC',
+              'value': 0.0,
+              'currency': 'BRL'
+            });
+          }
+          /* redireciona */
+          const cpf=document.getElementById('cpf').value.replace(/\D/g,'');
+          setTimeout(()=>{
+            window.location.href='https://wa.me/5511956391683?text=Olá,%20preciso%20da%202ª%20via%20do%20meu%20boleto.%20CPF:%20'+cpf;
+          }, 300);
+        });
       });
-
-      // ---- redirecionamento WhatsApp ----
-      const cpf = document.getElementById('cpf').value.replace(/\D/g,'');
-      window.location.href = 'https://wa.me/5511956391683?text=Olá,%20preciso%20da%202ª%20via%20do%20meu%20boleto.%20CPF:%20'+cpf;
     });
   </script>
   <script src="js/script.js"></script>
