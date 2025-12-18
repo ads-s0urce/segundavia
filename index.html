@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head> <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17797896293"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17797896293');
-</script>
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17797896293"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config','AW-17797896293');
+  </script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,7 +48,6 @@
             <input type="text" id="cpf" placeholder="Digite seu CPF" maxlength="14" required>
             <button type="submit" class="btn-primary">GERAR BOLETO</button>
             <input type="checkbox" id="lgpd" required>
-            <!--  link de política visível no label  -->
             <label for="lgpd">Concordo com os <a href="privacidade.html" target="_blank">Termos e Política de Privacidade</a></label>
           </form>
         </div>
@@ -62,7 +61,6 @@
       </div>
     </section>
 
-    <!--  BLOCO EXTRA ADICIONADO  -->
     <section class="extra-content">
       <div class="container">
         <h2>Como funciona a emissão da 2ª via</h2>
@@ -88,28 +86,21 @@
     </p>
   </footer>
 
-  <!-- Google Ads + redirect WhatsApp -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-123456789"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config','AW-123456789');
-
-    function fireLead(){
-      gtag('event','generate_lead',{
-        'send_to': 'AW-123456789/AbCdEfGhIjK',
-        'value': 1.0,
-        'currency': 'BRL'
-      });
-    }
-  </script>
-
-  <script>
+    // dispara conversão e depois redireciona
     document.getElementById('form-cpf').addEventListener('submit', function(e){
       e.preventDefault();
       if(!document.getElementById('lgpd').checked){ alert('Marque a autorização.'); return; }
-      fireLead();
+
+      // ---- conversão Google Ads ----
+      gtag('event','conversion',{
+        'send_to': 'AW-17797896293/AbCdEfGhIjK', // <-- substitua XXX pelo seu código real
+
+        'value': 0.0,
+        'currency': 'BRL'
+      });
+
+      // ---- redirecionamento WhatsApp ----
       const cpf = document.getElementById('cpf').value.replace(/\D/g,'');
       window.location.href = 'https://wa.me/5511956391683?text=Olá,%20preciso%20da%202ª%20via%20do%20meu%20boleto.%20CPF:%20'+cpf;
     });
